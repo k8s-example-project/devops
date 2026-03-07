@@ -15,5 +15,25 @@ services:
       timeout: 5s
       retries: 5
 
+  notes-api:
+    image: ghcr.io/k8s-example-project/notes-api:0.0.0
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/notesdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      FRONTEND_URL: http://localhost:5173
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  notes-ui:
+    image: ghcr.io/k8s-example-project/notes-ui:1.0.0
+    ports:
+      - "5173:80"
+    environment:
+      VITE_API_BASE_URL: http://localhost:8080/
+
 volumes:
   postgres_data:
