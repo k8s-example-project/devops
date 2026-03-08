@@ -16,7 +16,7 @@ services:
       retries: 5
 
   notes-api:
-    image: ghcr.io/k8s-example-project/notes-api:0.0.0
+    image: ghcr.io/k8s-example-project/notes-api:1.0.0
     ports:
       - "8080:8080"
     environment:

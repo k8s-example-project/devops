@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notes-ui
+  namespace: notes
+  labels:
+    app: notes-ui
+data:
+  VITE_API_BASE_URL: "/"
