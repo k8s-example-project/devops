@@ -1,54 +1,24 @@
-This project shows how to deploy simple web application using Docker Compose and Kubernetes.
+## Notes application – Docker & Kubernetes example
 
+This project demonstrates how to run a simple **notes** web application (Postgres + Spring Boot API + web UI) using **Docker Compose** and **Kubernetes (Minikube)**.
 
-## Prerequisites
+The same application stack is provided in two flavours:
 
-- **Docker** — required to run the stack. Install Docker Engine and Docker Compose:
-  - [Install Docker](https://docs.docker.com/get-docker/)
+- **Docker Compose** – quick local setup for development
+- **Kubernetes / Minikube** – more production‑like environment with Ingress, StatefulSet, and ConfigMaps/Secrets
 
-## Docker Compose
+### Where to start
 
-This repo includes a Docker Compose manifest at `docker/docker-compose.yml`. It runs three services:
+- **Docker setup**: see `docker/README.md` for running the stack with Docker Compose.
+- **Kubernetes / Minikube setup**: see `k8s/README.MD` for deploying the stack to Minikube.
 
-| Service    | Description                                      | Port  |
-|-----------|---------------------------------------------------|-------|
-| **postgres** | PostgreSQL 17.4 database (`notesdb`)             | 5432  |
-| **notes-api** | Notes REST API (Spring Boot)                     | 8080  |
-| **notes-ui**  | Notes web frontend                               | 5173  |
+### High‑level components
 
-## How to launch
+- **postgres**: PostgreSQL database (`notesdb`), stores notes and user data.
+- **notes-api**: Spring Boot REST API providing CRUD endpoints for notes and authentication.
+- **notes-ui**: Web frontend for interacting with the notes application.
 
-Go to the docker directory from the repo root:
-```bash
-cd docker
-```
-
-Run the stack in the background (logs are not shown in the terminal):
-```bash
-docker compose up -d
-```
-
-To run in the foreground (logs in terminal):
-
-```bash
-docker compose up
-```
-
-To stop and remove containers:
-
-```bash
-docker compose down
-```
-
-## Accessing the frontend
-
-Open a browser and go to:
-
-**http://localhost:5173**
-
-The UI talks to the API at `http://localhost:8080`.
-
-Default user credentials
+## Default user credentials
 
 - `gleb` / `gleb123`
 - `test` / `test123`
