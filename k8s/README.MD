@@ -163,7 +163,7 @@ You can also manage these Kubernetes manifests using **Argo CD**.
   After this:
 
   - Argo CD will manage the `notes` and `postgres` Applications defined in `k8s/argo-apps/`.
-  - Auto‑sync (with `selfHeal` and `prune`) is enabled for `cluster-apps` and for the child Applications, so changes pushed to the Git repo are automatically applied to the cluster.
+  - Auto‑sync (with `selfHeal` and `prune`) is enabled for `cluster-apps` and but not for the child Applications, so changes pushed to the Git repo won't be automatically applied to the cluster. It was done to show manual scaling of the application.
 
 ### Access the application locally
 

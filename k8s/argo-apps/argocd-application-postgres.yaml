@@ -8,11 +8,7 @@ spec:
   source:
     repoURL: https://github.com/k8s-example-project/devops.git
     path: k8s/project/postgres
-    targetRevision: add-k8s-configs
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: notes
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
