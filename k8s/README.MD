@@ -116,8 +116,9 @@ You can also manage these Kubernetes manifests using **Argo CD**.
   - Username: `admin`
   - Password (initial, from secret):
 
+    Use any base64 decoder to decode the password from the secret:
     ```bash
-    kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 --decode; echo
+    kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
     ```
 
 - **Connect this GitHub repo (if needed)**:

@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/k8s-example-project/devops.git
-      path: k8s/project/notes
+      path: k8s/project/notes-api
       targetRevision: add-k8s-configs
     - repoURL: https://github.com/k8s-example-project/devops.git
       path: k8s/project/notes-ui
