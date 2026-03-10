@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notes-api
+  namespace: notes
+  labels:
+    app: notes-api
+data:
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres.notes.svc.cluster.local:5432/notesdb" # Headless Service for Postgres, better to use full DNS name

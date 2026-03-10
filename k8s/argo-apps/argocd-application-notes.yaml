@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: notes
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/k8s-example-project/devops.git
+      path: k8s/project/notes-api
+      targetRevision: HEAD
+    - repoURL: https://github.com/k8s-example-project/devops.git
+      path: k8s/project/notes-ui
+      targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: notes

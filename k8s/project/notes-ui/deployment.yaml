@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notes-ui
+  namespace: notes
+  labels:
+    app: notes-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notes-ui
+  template:
+    metadata:
+      labels:
+        app: notes-ui
+    spec:
+      containers:
+        - name: notes-ui
+          image: ghcr.io/k8s-example-project/notes-ui:1.0.0
+          ports:
+            - containerPort: 80
+              name: http
+          env:
+            - name: VITE_API_BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: notes-ui
+                  key: VITE_API_BASE_URL
