@@ -6,7 +6,7 @@ metadata:
   labels:
     app: notes-api
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: notes-api
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: notes-api
-          image: ghcr.io/k8s-example-project/notes-api:1.0.0
+          image: ghcr.io/k8s-example-project/notes-api:1.0.1
           ports:
             - containerPort: 8080
               name: http
