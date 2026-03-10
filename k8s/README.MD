@@ -200,7 +200,6 @@ k8s/
 │   ├── argocd-application-sam-mcp.yaml    # Argo CD Application for notes UI/API + ingress
 │   └── argocd-application-postgres.yaml   # Argo CD Application for postgres in the target namespace
 └── project/
-    ├── ingress.yaml             # NGINX Ingress: notes.host, /api -> notes-api:8080, / -> notes-ui:80
     ├── notes-api/
     │   ├── deployment.yaml      # notes-api Deployment (Spring), exposes 8080, reads DB creds from Secret/ConfigMap
     │   ├── service.yaml         # ClusterIP Service for notes-api (port 8080)
@@ -208,6 +207,7 @@ k8s/
     ├── notes-ui/
     │   ├── deployment.yaml      # notes-ui Deployment (Vue 3), exposes 80, reads VITE_API_BASE_URL
     │   ├── service.yaml         # ClusterIP Service for notes-ui (port 80)
+    │   ├── ingress.yaml         # NGINX Ingress: notes.host, /api -> notes-api:8080, / -> notes-ui:80
     │   └── configmap.yaml       # VITE_API_BASE_URL (set to "/")
     └── postgres/
         ├── statefulset.yaml     # Postgres StatefulSet with PVC (10Gi) at /var/lib/postgresql/data

@@ -12,9 +12,6 @@ spec:
     - repoURL: https://github.com/k8s-example-project/devops.git
       path: k8s/project/notes-ui
       targetRevision: add-k8s-configs
-    - repoURL: https://github.com/k8s-example-project/devops.git
-      path: k8s/project/ingress.yaml
-      targetRevision: add-k8s-configs
   destination:
     server: https://kubernetes.default.svc
     namespace: notes
